@@ -1,5 +1,9 @@
-//Set Game Score
+//init game on load
+$(document).ready(function(){
+    game.resetGame();
+})
 
+//Set Game object
 var game = {
     gameScore: "", // holds the random score selected for each game
     gemScore: "", // holds the random score selected for gem
@@ -10,14 +14,17 @@ var game = {
 
     //reset all game counters + start game
     resetGame: function(){
-        this.yourScore = 0,
-        this.hasFinished = false,
+        this.hasFinished = false;
+        this.yourScore = 0;
         this.gemScore = "",
 
-        this.gameScore = Math.floor(Math.random()*102)+19;
+        this.gameScore = Math.floor(Math.random() * 102) + 19;
         $("#gameScore").text(this.gameScore);
 
         this.updateDisplay();
+
+        //PROBLEM 1: THIS doesn't show all the crystal images the one from last game is just an empty button when I reset my game?
+        //PROBLEM 2: for some reason my this.setGem(); also runs when I reset a game??? can be seen if the this.gemScore = "", is deleted from above.
     },
 
     //update display
@@ -38,7 +45,7 @@ var game = {
 
     //sets gem score
     setGem: function(){
-        this.gemScore = Math.floor(Math.random()*13)+1;
+        this.gemScore = Math.floor(Math.random() * 13) + 1;
         this.calcYourScore();
     },
 
@@ -72,11 +79,6 @@ var game = {
 
 
 }
-
-//init game on load
-$(document).ready(function(){
-    game.resetGame();
-})
 
 //setting up on clicks
 $("#btn1").click(function(){
