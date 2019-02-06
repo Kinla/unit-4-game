@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"></link>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">    <link rel="stylesheet" type="text/css" href="assets/css/style.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Crystal Collector</title>
+</head>
+<body>
+    <div class="col-8 mx-auto mt-4 text-center">
+        <header class="h1">Crystal Collector!</header>
+        <br>
+        <!--<div>
+            <ul class="col-8 offset-2 text-left">
+                <h5>These are the rules of the game!</h5>
+                <li>You will be given a random number at the start of the game.</li>
+                <li>There are 4 crystals below. By clicking on a crystal you will reveal a specific amount of points. </li>
+                <li>The points will be added to your total score.</li>
+                <li>You will win the game by matching your total score to the random number. You lose the game if you go over.</li>
+            </ul>
+        </div>-->
+        <br>
+        <div class="row">
+            <div class="card col-3 offset-2">
+                <h6>Score to match:</h6>
+                <p id="gameScore"></p>
+            </div>
+            <div class="card col-3 offset-2 text-left">
+                <p>Wins: <span id="win"></span></p>
+                <p>Losses: <span id="loss"></span></p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <button type="button" class="col-2 offset-2" id="btn1"><span id="gemScore1"></span><img class="img-fluid" id="gem1" src="assets/images/gem1.png"></button>
+            <button type="button" class="col-2" id="btn2"><span id="gemScore2"></span><img class="img-fluid" id="gem2" src="assets/images/gem2.png"></button>
+            <button type="button" class="col-2" id="btn3"><span id="gemScore3"></span><img class="img-fluid" id="gem3" src="assets/images/gem3.png"></button>
+            <button type="button" class="col-2" id="btn4"><span id="gemScore4"></span><img class="img-fluid" id="gem4" src="assets/images/gem4.jpg"></button>
+        </div>
+        <br>
+        <div class="card col-3 mx-auto">
+            <h6>Your score:</h6>
+            <p id="yourScore"></p>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="assets/javascript/game.js"></script>
+
+</html>
