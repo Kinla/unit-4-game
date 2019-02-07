@@ -16,7 +16,7 @@ var game = {
     resetGame: function(){
         this.hasFinished = false;
         this.yourScore = 0;
-        this.gemScore = "",
+        this.gemScore = "";
 
         this.gameScore = Math.floor(Math.random() * 102) + 19;
         $("#gameScore").text(this.gameScore);
@@ -53,27 +53,30 @@ var game = {
     calcYourScore: function () {
         //update yourScore
         this.yourScore += this.gemScore;
-        this.winLoss();
+        this.updateDisplay();
+        if (this.yourScore < this.gameScore) {
+        } else {
+            this.winLoss();
+        }
+
     },
     
     //check if won
     winLoss: function (){
+        this.updateDisplay();
         // if won
         if(this.yourScore === this.gameScore){
             this.win++;
             this.hasFinished = true;
-            alert("YOU WIN! Loading next game.");
-            this.resetGame();
+            alert("You have won!");
+            return
             //if loss
         } else if (this.yourScore > this.gameScore){
             this.loss++
-            this.hasfinished = true;
-            alert("YOU LOSE! Loading next game.");
-            this.resetGame();
-            // keep going
-            } else if (this.yourScore < this.gameScore){
-                this.updateDisplay();
-                }
+            this.hasFinished = true;
+            alert("You have loss!");
+            return
+        };
 
     },
 
@@ -82,6 +85,10 @@ var game = {
 
 //setting up on clicks
 $("#btn1").click(function(){
+    if (hasFinished){
+        game.updateDisplay();
+        
+    }
     game.setGem();
     $("#gemScore1").show();
     $("#gemScore1").text(game.gemScore);
