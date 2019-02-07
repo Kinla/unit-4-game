@@ -1,3 +1,5 @@
+"use strict";
+
 //init game on load
 $(document).ready(function(){
     game.resetGame();
@@ -6,7 +8,7 @@ $(document).ready(function(){
 //Set Game object
 var game = {
     gameScore: "", // holds the random score selected for each game
-    gemScore: "", // holds the random score selected for gem
+    gemScore: [], // holds the random score selected for gems
     yourScore: 0, // holds the total score of player
     win: 0, // sets game win to 0
     loss: 0, // sets game loss to 0
@@ -16,15 +18,18 @@ var game = {
     resetGame: function(){
         this.hasFinished = false;
         this.yourScore = 0;
-        this.gemScore = "";
 
         this.gameScore = Math.floor(Math.random() * 102) + 19;
         $("#gameScore").text(this.gameScore);
 
+        for (var i = 0; i <= 3; i++){
+            this.gemScore[i] = Math.floor(Math.random() * 13) + 1;
+        };
+
         this.updateDisplay();
 
-        //PROBLEM 1: THIS doesn't show all the crystal images the one from last game is just an empty button when I reset my game?
-        //PROBLEM 2: for some reason my this.setGem(); also runs when I reset a game??? can be seen if the this.gemScore = "", is deleted from above.
+        console.log(game.gemScore);
+
     },
 
     //update display
@@ -32,87 +37,60 @@ var game = {
         $("#win").text(this.win);
         $("#loss").text(this.loss);
         $("#yourScore").text(this.yourScore);
-        $("#gemScore1").hide();
-        $("#gemScore2").hide();
-        $("#gemScore3").hide();
-        $("#gemScore4").hide();
-        $("#gem1").show();
-        $("#gem2").show();
-        $("#gem3").show();
-        $("#gem4").show();
-
+        $("#msg").empty();
     },
 
-    //sets gem score
-    setGem: function(){
-        this.gemScore = Math.floor(Math.random() * 13) + 1;
-        this.calcYourScore();
-    },
-
-    // calculate yourScore
-    calcYourScore: function () {
-        //update yourScore
-        this.yourScore += this.gemScore;
-        this.updateDisplay();
-        if (this.yourScore < this.gameScore) {
-        } else {
-            this.winLoss();
-        }
-
-    },
-    
-    //check if won
-    winLoss: function (){
-        this.updateDisplay();
-        // if won
-        if(this.yourScore === this.gameScore){
+    winLoss: function () {
+        if (this.yourScore < this.gameScore){
+            this.updateDisplay ();
+        } else if (this.yourScore === this.gameScore){
+            $("#msg").append("<p>You win!</p>");
             this.win++;
             this.hasFinished = true;
-            alert("You have won!");
-            return
-            //if loss
-        } else if (this.yourScore > this.gameScore){
-            this.loss++
+        } else {
+            $("#msg").append("<p>You loss!</p>");
+            this.loss++;
             this.hasFinished = true;
-            alert("You have loss!");
-            return
         };
-
+    
     },
-
-
 }
 
+
 //setting up on clicks
-$("#btn1").click(function(){
-    if (hasFinished){
-        game.updateDisplay();
-        
-    }
-    game.setGem();
-    $("#gemScore1").show();
-    $("#gemScore1").text(game.gemScore);
-    $("#gem1").hide();
+$("#btn1").on("click", function(){
+    if (game.hasFinished){
+        game.resetGame();
+    } else {
+    game.yourScore += game.gemScore[0];
+    game.winLoss();
+    };
 })
 
-$("#btn2").click(function(){
-    game.setGem();
-    $("#gemScore2").show();
-    $("#gemScore2").text(game.gemScore);
-    $("#gem2").hide();
+$("#btn2").on("click", function(){
+    if (game.hasFinished){
+        game.resetGame();
+    } else {
+    game.yourScore += game.gemScore[1];
+    game.winLoss();
+    };
 })
 
-$("#btn3").click(function(){
-    game.setGem();
-    $("#gemScore3").show();
-    $("#gemScore3").text(game.gemScore);
-    $("#gem3").hide();
+$("#btn3").on("click", function(){
+    if (game.hasFinished){
+        game.resetGame();
+    } else {
+    game.yourScore += game.gemScore[2];
+    game.winLoss();
+    };
 })
 
-$("#btn4").click(function(){
-    game.setGem();
-    $("#gemScore4").show();
-    $("#gemScore4").text(game.gemScore);
-    $("#gem4").hide();
+$("#btn4").on("click", function(){
+    if (game.hasFinished){
+        game.resetGame();
+    } else {
+    game.yourScore += game.gemScore[3];
+    game.winLoss();
+    };
 })
 

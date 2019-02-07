@@ -10,40 +10,44 @@
     <title>Crystal Collector</title>
 </head>
 <body>
-    <div class="col-8 mx-auto mt-4 text-center">
-        <header class="h1">Crystal Collector!</header>
-        <br>
-        <!--<div>
-            <ul class="col-8 offset-2 text-left">
-                <h5>These are the rules of the game!</h5>
-                <li>You will be given a random number at the start of the game.</li>
-                <li>There are 4 crystals below. By clicking on a crystal you will reveal a specific amount of points. </li>
-                <li>The points will be added to your total score.</li>
-                <li>You will win the game by matching your total score to the random number. You lose the game if you go over.</li>
-            </ul>
-        </div>-->
-        <br>
-        <div class="row">
-            <div class="card col-3 offset-2">
-                <h6 class="mt-1">Score to match:</h6>
-                <p  class="mb-1" id="gameScore"></p>
+    <div class="card col-8 mx-auto my-4 text-center game">
+        <div class="card-body">
+            <header class="h1">Crystal Collector!</header>
+            <br>
+            <!--<div>
+                <ul class="col-8 offset-2 text-left">
+                    <h5>These are the rules of the game!</h5>
+                    <li>You will be given a random number at the start of the game.</li>
+                    <li>There are 4 crystals below. By clicking on a crystal you will reveal a specific amount of points. </li>
+                    <li>The points will be added to your total score.</li>
+                    <li>You will win the game by matching your total score to the random number. You lose the game if you go over.</li>
+                </ul>
+            </div>-->
+            <br>
+            <div class="row">
+                <div class="card col-3 offset-2">
+                    <h6 class="mt-1">Score to match:</h6>
+                    <p  class="mb-1" id="gameScore"></p>
+                </div>
+                <div class="card col-3 offset-2" id="scoreBox">
+                    <div id="msg"></div>
+                    <p class="mt-1">Wins: <span id="win"></span></p>
+                    <p class="mb-1">Losses: <span id="loss"></span></p>
+                </div>
             </div>
-            <div class="card col-3 offset-2">
-                <p class="mt-1">Wins: <span id="win"></span></p>
-                <p class="mb-1">Losses: <span id="loss"></span></p>
+            <br> 
+            <div class="row">
+                <button type="button" class="col-2 offset-2" id="btn1"><span id="gemScore1"></span><img class="img-fluid" id="gem1" src="assets/images/gem1.png"></button>
+                <button type="button" class="col-2" id="btn2"><span id="gemScore2"></span><img class="img-fluid" id="gem2" src="assets/images/gem2.png"></button>
+                <button type="button" class="col-2" id="btn3"><span id="gemScore3"></span><img class="img-fluid" id="gem3" src="assets/images/gem3.png"></button>
+                <button type="button" class="col-2" id="btn4"><span id="gemScore4"></span><img class="img-fluid" id="gem4" src="assets/images/gem4.png"></button>
             </div>
-        </div>
-        <br>
-        <div class="row">
-            <button type="button" class="col-2 offset-2" id="btn1"><span id="gemScore1"></span><img class="img-fluid" id="gem1" src="assets/images/gem1.png"></button>
-            <button type="button" class="col-2" id="btn2"><span id="gemScore2"></span><img class="img-fluid" id="gem2" src="assets/images/gem2.png"></button>
-            <button type="button" class="col-2" id="btn3"><span id="gemScore3"></span><img class="img-fluid" id="gem3" src="assets/images/gem3.png"></button>
-            <button type="button" class="col-2" id="btn4"><span id="gemScore4"></span><img class="img-fluid" id="gem4" src="assets/images/gem4.png"></button>
-        </div>
-        <br>
-        <div class="card col-3 mx-auto">
-            <h6 class="mt-1">Your score:</h6>
-            <p class="mb-1" id="yourScore"></p>
+            <br>
+            <div class="card col-3 mx-auto">
+                <h6 class="mt-1">Your score:</h6>
+                <p class="mb-1" id="yourScore"></p>
+            </div>
+        
         </div>
     </div>
 </body>
