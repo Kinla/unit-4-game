@@ -44,10 +44,12 @@ var game = {
         if (this.yourScore < this.gameScore){
             this.updateDisplay ();
         } else if (this.yourScore === this.gameScore){
+            this.resetGame();
             $("#msg").append("<p>You win!</p>");
             this.win++;
             this.hasFinished = true;
         } else {
+            this.resetGame();
             $("#msg").append("<p>You loss!</p>");
             this.loss++;
             this.hasFinished = true;
@@ -59,38 +61,22 @@ var game = {
 
 //setting up on clicks
 $("#btn1").on("click", function(){
-    if (game.hasFinished){
-        game.resetGame();
-    } else {
     game.yourScore += game.gemScore[0];
     game.winLoss();
-    };
 })
 
 $("#btn2").on("click", function(){
-    if (game.hasFinished){
-        game.resetGame();
-    } else {
     game.yourScore += game.gemScore[1];
     game.winLoss();
-    };
 })
 
 $("#btn3").on("click", function(){
-    if (game.hasFinished){
-        game.resetGame();
-    } else {
     game.yourScore += game.gemScore[2];
     game.winLoss();
-    };
 })
 
 $("#btn4").on("click", function(){
-    if (game.hasFinished){
-        game.resetGame();
-    } else {
     game.yourScore += game.gemScore[3];
     game.winLoss();
-    };
 })
 
