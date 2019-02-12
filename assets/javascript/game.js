@@ -13,6 +13,7 @@ var game = {
     win: 0, // sets game win to 0
     loss: 0, // sets game loss to 0
     hasFinished: true,
+    
 
     //reset all game counters + start game
     resetGame: function(){
@@ -50,7 +51,7 @@ var game = {
             this.hasFinished = true;
         } else {
             this.resetGame();
-            $("#msg").append("<p>You loss!</p>");
+            $("#msg").append("<p>You lose!</p>");
             this.loss++;
             this.hasFinished = true;
         };
